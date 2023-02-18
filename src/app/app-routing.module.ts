@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   {
     path: 'views',
-    canActivate: [AuthguardGuard],
+    // canActivate: [AuthguardGuard],
     loadChildren: () =>
       import('./components/views/views.module').then((m) => m.ViewsModule),
   },

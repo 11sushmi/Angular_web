@@ -9,7 +9,7 @@ import { UserlistComponent } from './userlist/userlist.component';
 const routes: Routes = [
   { path: 'userlist', component: UserlistComponent },
   { path: 'createuser', component: CreateuserComponent },
-  { path: 'createuser/:id', component: CreateuserComponent },
+  { path: 'edituser/:id', component: CreateuserComponent },
 ];
 
 
