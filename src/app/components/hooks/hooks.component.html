@@ -1,0 +1,71 @@
+<div class="container-fluid p-5">
+    <div class="card">
+        <div class="card-header text-center bg-success-subtle fw-bold fs-3">
+            Parent Component
+        </div>
+        <div class="card-body bg-light">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="input4FirstName" class="form-label">Message
+                    </label>
+                    <input type="text" class="form-control" id="input4FirstName" [(ngModel)]='message'>
+                </div>
+                <div class="col-md-4">
+                    <label for="input4FirstName" class="form-label">Code
+                    </label>
+                    <input type="text" class="form-control" id="input4FirstName" [(ngModel)]='code'>
+                </div>
+                <div class="col-md-4">
+                    <label for="input4FirstName" class="form-label">Name
+                    </label>
+                    <input type="text" class="form-control" id="input4FirstName" [(ngModel)]='name'>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer d-grid gap-2 d-md-flex justify-content-md-end bg-success-subtle p-3">
+            <button class="btn btn-success" (click)="updateCustomer()">Update </button>
+        </div>
+    </div>
+</div>
+<app-lifecyclehooks [message]="message" [customer]="customer"></app-lifecyclehooks>
+
+<div class="container-fluid p-5">
+    <div class="card">
+        <div class="card-header text-center text-white bg-dark fw-bold fs-3">
+            <h2 class="fw-bold fs-3">ngOnInit/ngOnDestroy</h2>
+        </div>
+        <div class="card-body bg-light">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="input4FirstName" class="form-label">Counter
+                    </label>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-info" (click)="isChildMount=!isChildMount">Toggle Timer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-ng-on-init-on-destroy *ngIf="isChildMount"></app-ng-on-init-on-destroy>
+
+<div class="container-fluid p-5">
+    <div class="card">
+        <div class="card-header text-center text-white bg-dark fw-bold fs-3">
+            <h2 class="fw-bold fs-3">ngHooks</h2>
+        </div>
+        <div class="card-body bg-light">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="input4FirstName" class="form-label">Mount Component
+                    </label>
+                    <input type="text" class="form-control" id="input4FirstName" [(ngModel)]='message'>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-info" (click)="isChildMount=!isChildMount">Mount/Unmount</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-nghooks *ngIf="isChildMount" [message]="message"></app-nghooks>

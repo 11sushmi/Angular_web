@@ -2,18 +2,21 @@ import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { CounterService } from 'src/app/services/counter.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-createuser',
   templateUrl: './createuser.component.html',
   styleUrls: ['./createuser.component.css'],
+  providers: [CounterService],
 })
 export class CreateuserComponent implements OnInit {
   constructor(
     private activatedroute: ActivatedRoute,
     private userService: UserService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public counterService: CounterService
   ) {}
 
   submitted = false;
