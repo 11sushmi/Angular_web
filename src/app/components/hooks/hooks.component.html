@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <h5 class="card-title fw-bold fs-6">Lifecycle of Component</h5>
                         <p class="card-text">A demo on Lifecycle hooks in a component</p>
-                        <button class="btn btn-info" (click)="isChildMount=!isChildMount">Mount/UnMount
+                        <button class="btn btn-info" (click)="lifeCycleStages()">Mount/UnMount
                             Component</button>
                     </div>
                 </div>
@@ -21,14 +21,21 @@
                             Component</button>
                     </div>
                 </div>
+                <div class="card bg-danger-subtle" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold fs-6">ngOnChanges & ngDoCheck Hooks</h5>
+                        <p class="card-text">Example of ngOnChanges & ngDoCheck Hooks</p>
+                        <button class="btn btn-danger" (click)="onDemoClick()">ngOnChanges</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <br>
 <br>
-<!-- 
-<div class="container-fluid p-5">
+
+<div *ngIf="showNgOnChangeDemo" class="container-fluid p-5">
     <div class="card">
         <div class="card-header text-center bg-success-subtle fw-bold fs-3">
             Parent Component
@@ -57,26 +64,10 @@
         </div>
     </div>
 </div>
-<app-lifecyclehooks [message]="message" [customer]="customer"></app-lifecyclehooks> -->
 
-<!-- <div class="container-fluid p-5">
-    <div class="card">
-        <div class="card-header text-center text-white bg-dark fw-bold fs-3">
-            <h2 class="fw-bold fs-3">ngOnInit/ngOnDestroy</h2>
-        </div>
-        <div class="card-body bg-light">
-            <div class="row">
-                <div class="col-md-4">
-                    <label for="input4FirstName" class="form-label">Counter
-                    </label>
-                </div>
-                <div class="col-md-2">
-                    <button class="btn btn-info" (click)="isChildMount=!isChildMount">Toggle Timer</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
+
 <app-ng-on-init-on-destroy *ngIf="isTimerMount"></app-ng-on-init-on-destroy>
 
 <app-nghooks *ngIf="isChildMount" [title]="titlename"></app-nghooks>
+
+<app-lifecyclehooks *ngIf="showNgOnChangeDemo" [message]="message" [customer]="customer"></app-lifecyclehooks>

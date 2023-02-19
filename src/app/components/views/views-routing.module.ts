@@ -20,6 +20,7 @@ const routes: Routes = [
       { path: 'demo/service', component: CounterComponent },
       { path: 'demo/lifecyclehooks', component: HooksComponent },
       { path: 'demo/nghooks', component: NghooksComponent },
+      { path: 'demo/ngOnChanges', component: LifecyclehooksComponent },
       { path: 'demo/html', component: HtmlbasicsComponent },
       { path: '', redirectTo: '/views/dashboard', pathMatch: 'full' },
       {
