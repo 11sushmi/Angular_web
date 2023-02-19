@@ -17,6 +17,9 @@
                         routerLink="./user/createuser">Add
                         User</a>
                 </li>
+                <li class="nav-item" *ngIf="router.url.includes('/demo')">
+                    <a class="nav-link text-white fw-bold fs-6" routerLinkActive="active" routerLink="./demo">Demo</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link text-white fw-bold fs-6" routerLinkActive="active"
                         routerLink="../login">LogOut</a>

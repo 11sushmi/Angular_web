@@ -20,6 +20,8 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { CounterService } from './services/counter.service';
 import { HtmlbasicsComponent } from './components/htmlbasics/htmlbasics.component';
 import { HooksComponent } from './components/hooks/hooks.component';
+import { InputComponent } from './components/input/input.component';
+import { InputchildComponent } from './components/inputchild/inputchild.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { HooksComponent } from './components/hooks/hooks.component';
     HighlightDirective,
     HtmlbasicsComponent,
     HooksComponent,
+    InputComponent,
+    InputchildComponent,
   ],
   imports: [
     BrowserModule,

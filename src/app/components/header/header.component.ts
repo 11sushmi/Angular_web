@@ -4,22 +4,15 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  constructor(public router: Router) {}
 
-  constructor(private router: Router) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  onClickCreateUser() {
+    this.router.navigateByUrl('views/user/createuser/' + 'test');
   }
-
-
-  onClickCreateUser()
-  {
-    this.router.navigateByUrl("views/user/createuser/"+ 'test' );
-
-  }
-  logout(): void {
-   
-  }
+  logout(): void {}
 }

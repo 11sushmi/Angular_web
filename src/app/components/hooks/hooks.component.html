@@ -1,3 +1,33 @@
+<div class="container-fluid p-3">
+    <div class="card">
+        <div class="card-header text-center text-white fw-bold fs-3 p-3" style="background-color: rgb(122, 54, 40);">
+            LifeCycle Hooks
+        </div>
+        <div class="card-body" style="background-color: aliceblue;">
+            <div class="row justify-content-around g-3 p-3">
+                <div class="card bg-info-subtle" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold fs-6">Lifecycle of Component</h5>
+                        <p class="card-text">A demo on Lifecycle hooks in a component</p>
+                        <button class="btn btn-info" (click)="isChildMount=!isChildMount">Mount/UnMount
+                            Component</button>
+                    </div>
+                </div>
+                <div class="card bg-success-subtle" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold fs-6">ngOnInit & ngOnDestroy Hooks</h5>
+                        <p class="card-text">Example of ngOnInit & ngOnDestroy Hooks using Timer Component</p>
+                        <button class="btn btn-success" (click)="onTimerClick()">Toggle Timer
+                            Component</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<!-- 
 <div class="container-fluid p-5">
     <div class="card">
         <div class="card-header text-center bg-success-subtle fw-bold fs-3">
@@ -27,9 +57,9 @@
         </div>
     </div>
 </div>
-<app-lifecyclehooks [message]="message" [customer]="customer"></app-lifecyclehooks>
+<app-lifecyclehooks [message]="message" [customer]="customer"></app-lifecyclehooks> -->
 
-<div class="container-fluid p-5">
+<!-- <div class="container-fluid p-5">
     <div class="card">
         <div class="card-header text-center text-white bg-dark fw-bold fs-3">
             <h2 class="fw-bold fs-3">ngOnInit/ngOnDestroy</h2>
@@ -46,26 +76,7 @@
             </div>
         </div>
     </div>
-</div>
-<app-ng-on-init-on-destroy *ngIf="isChildMount"></app-ng-on-init-on-destroy>
+</div> -->
+<app-ng-on-init-on-destroy *ngIf="isTimerMount"></app-ng-on-init-on-destroy>
 
-<div class="container-fluid p-5">
-    <div class="card">
-        <div class="card-header text-center text-white bg-dark fw-bold fs-3">
-            <h2 class="fw-bold fs-3">ngHooks</h2>
-        </div>
-        <div class="card-body bg-light">
-            <div class="row">
-                <div class="col-md-4">
-                    <label for="input4FirstName" class="form-label">Mount Component
-                    </label>
-                    <input type="text" class="form-control" id="input4FirstName" [(ngModel)]='message'>
-                </div>
-                <div class="col-md-2">
-                    <button class="btn btn-info" (click)="isChildMount=!isChildMount">Mount/Unmount</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<app-nghooks *ngIf="isChildMount" [message]="message"></app-nghooks>
+<app-nghooks *ngIf="isChildMount" [title]="titlename"></app-nghooks>

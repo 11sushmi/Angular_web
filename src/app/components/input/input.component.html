@@ -1,0 +1,27 @@
+<div class="container-fluid p-3">
+    <div class="card">
+        <div class="card-header text-center text-white fw-bold fs-3 p-3" style="background-color: rgb(22, 69, 59);">
+            Parent to Child Communication via @Input
+        </div>
+        <div class="card-body" style="background-color: rgba(205, 255, 247, 0.273);">
+            <div class="row justify-content-around g-3 p-3">
+                <div class="card bg-light-subtle" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold fs-6">I'm a Parent Component</h5>
+                        <p class="card-text">Type a text and click on Send Data to share data from Parent to Child
+                            Component</p>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" [(ngModel)]="message">
+                            <button class="btn btn-success" (click)="sendDataToChild()">Send Data</button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="isChildVisible" class="card bg-danger-subtle" style="width: 18rem;">
+                    <app-inputchild [parentData]="message"></app-inputchild>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>

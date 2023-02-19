@@ -46,7 +46,7 @@ export class DashboardComponent implements OnInit {
   }
 
   onInputDemo() {
-    this.router.navigateByUrl('views/demo/service');
+    this.router.navigateByUrl('views/demo/input');
   }
   onOutputDemo() {
     this.router.navigateByUrl('views/demo/edituser/');

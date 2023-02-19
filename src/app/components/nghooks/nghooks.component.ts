@@ -31,7 +31,7 @@ export class NghooksComponent
 {
   lifecycle: string[] = [];
   order = 1;
-  @Input() message: any;
+  @Input() title: any;
   constructor() {
     alert("Hey I'm constructor()");
     console.log(
@@ -93,32 +93,32 @@ export class NghooksComponent
   }
 
   ngAfterViewInit() {
+    this.lifecycle.push('I am from ngAfterViewInit()!!');
     alert("Hey I'm ngAfterViewInit()");
     console.log(
       '%cI am from ngAfterViewInit() and my order::::' + this.order,
       'color: cyan'
     );
     this.order++;
-    this.lifecycle.push('I am from ngAfterViewInit()!!');
   }
 
   ngAfterViewChecked() {
+    this.lifecycle.push('I am from ngAfterViewChecked()!!');
     alert("Hey I'm ngAfterViewChecked()");
     console.log(
       '%cI am from ngAfterViewChecked() and my order::::' + this.order,
       'color: cyan'
     );
     this.order++;
-    this.lifecycle.push('I am from ngAfterViewChecked()!!');
   }
 
   ngOnDestroy() {
+    this.lifecycle.push('I am from ngOnDestroy()!!');
     alert("Hey I'm ngOnDestroy()");
     console.log(
       '%cI am from ngOnDestroy() and my order::::' + this.order,
       'color: cyan'
     );
     this.order++;
-    this.lifecycle.push('I am from ngOnDestroy()!!');
   }
 }
