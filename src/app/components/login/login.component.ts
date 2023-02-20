@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,17 +11,19 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  username = "";
-  password = "";
+  @ViewChild('loginForm') form!: NgForm;
+
+  model: any = {};
 
   ngOnInit(): void {
   }
 
 
-  onClickLogin() {
-    if (this.username !== "" && this.password !== "") {
-      this.router.navigateByUrl("views/dashboard");
-    }
+
+  onSubmit() {
+    console.log(this.form);
+    console.log(this.model);
+    this.router.navigateByUrl("views/dashboard");
 
   }
 

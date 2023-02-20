@@ -8,20 +8,33 @@
                 </div>
                 <br />
 
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" [(ngModel)]="username"
-                        placeholder="Enter email">
-                </div>
-                <br />
 
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password" placeholder="Password">
-                </div>
-                <br />
-                
-                <button class="btn btn-primary w-100" (click)="onClickLogin()">Login</button>
+                <form (ngSubmit)="onSubmit()" name="form" #loginForm="ngForm">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" #email="ngModel"
+                            name="email" [(ngModel)]="model.email" required email>
+                    </div>
+                    <div>
+                        <span *ngIf="email.invalid && email.touched" class="error">Email is Required.</span>
+                    </div>
+
+
+                    <br />
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password" name="password"
+                          #password="ngModel"  [(ngModel)]="model.password" required>
+                    </div>
+                    <div>
+                        <span *ngIf="password.invalid && password.touched" class="error">Password is Required.</span>
+                    </div>
+                    <br />
+
+                    <button class="btn btn-primary w-100" type="submit" [disabled]="!loginForm.valid">Login</button>
+                </form>
+
 
 
             </div>
