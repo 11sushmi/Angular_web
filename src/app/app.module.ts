@@ -11,6 +11,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpInterceptorService } from './services/http-interceptor.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 @NgModule({
@@ -22,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     ViewsComponent,
     HeaderComponent,
     FooterComponent
-    
+
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

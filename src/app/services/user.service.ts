@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { catchError, Observable, retry, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,13 +13,33 @@ export class UserService {
 
 
   getUserList(): Observable<any> {
-    return this.http.get(`http://localhost:3000/api/user/getUserList`);
+ 
+    return this.http.get(`user/getUserList`).pipe(
+      retry(3),
+      catchError(this.handleError)
+    );
   }
 
 
 
   getUserData(userId: Number): Observable<any> {
-    return this.http.get(`http://localhost:3000/api/user/getUser/` + userId);
+    return this.http.get(`user/getUser/` + userId);
+  }
+
+
+  handleError(error: HttpErrorResponse) {
+
+    let errorMessage = "";
+    if (error.status == 0) {
+      console.log("Error Occurred :" + error.error);
+    } else {
+      errorMessage = `API returned code - ${error.status}  - ${error.statusText}. Error Message : ${error.message}`
+    }
+
+    if (errorMessage == "") {
+      errorMessage = 'Something bad happened; Please try again.';
+    }
+    return throwError(() => new Error(errorMessage));
   }
 
 

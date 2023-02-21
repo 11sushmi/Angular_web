@@ -13,20 +13,28 @@ export class UserlistComponent implements OnInit {
   constructor(private router: Router, private userService: UserService) { }
 
   userList: any;
+  error = "";
 
   ngOnInit(): void {
 
 
     this.userService.getUserList().subscribe(res => {
-      debugger;
       this.userList = res;
-    });
+    }, (error) => {
+      this.error = error;
+    }
+    );
 
 
   }
 
   onEditUser(user: any) {
     this.router.navigateByUrl("views/user/edituser/" + user.UserId);
+  }
+
+  onCloseAlert()
+  {
+    this.error = "";
   }
 
 }
